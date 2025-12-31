@@ -27,3 +27,21 @@ export function makeid(length = 6) {
   id= id.startsWith('0') ? 'Z'+id.substring(1) : id; //Replace starting 0 with Z
   return id;
 }//----------------------------------------------------------------------------
+
+//Shuffle an array-------------------------------------------------------------
+export function randomize(array = []) {
+  let i    = array.length;
+  let j    = 0;
+  let temp = 0;
+
+  while (--i > 0) {
+    j = Math.floor(Math.random() * (i+1));   
+    temp     = array[j];
+    array[j] = array[i];
+    array[i] =     temp;
+  }
+
+  return array;
+}//----------------------------------------------------------------------------
+
+export default RI;

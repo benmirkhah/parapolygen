@@ -3,21 +3,19 @@ import { makeid } from "../helpers/ppg-random.mjs";
 
 //A group of one or more shapes------------------------------------------------
 class Group extends Element{
-  static gcount =  1;
+  static count =   1;
   zindex  =        1;
   members = Object();
   //------------------------------------------------------------
   constructor(id = 'G'+makeid(), members = {}, cname = '') {
     super({'id':id, 'cname':cname });
-    this.zindex  = Group.gcount++;
+    this.zindex  = Group.count++;
     if (members.length) { 
       this.members = { ...members };
     }
   }
   //------------------------------------------------------------
-  count() {
-    return Group.gcount;
-  }
+  count() { return Group.count; }
   //------------------------------------------------------------
   add(id = 0) {
     if(id) { this.members[id] = id; }
