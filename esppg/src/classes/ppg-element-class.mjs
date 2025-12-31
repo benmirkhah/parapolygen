@@ -6,10 +6,14 @@ export class Element {
     id    =  '',
     cname =  '',
     html  =  '',
-  } = {}){
+  } = {}) {
     this.id    =    id;
     this.cname = cname;
     this.html  =  html;
     Element.ecount++;
+  }
+  //------------------------------------------------------------
+  count() {
+    return Element.ecount;
   }
 }//----------------------------------------------------------------------------

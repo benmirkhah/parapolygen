@@ -15,6 +15,10 @@ class Group extends Element{
     }
   }
   //------------------------------------------------------------
+  count() {
+    return Group.gcount;
+  }
+  //------------------------------------------------------------
   add(id = 0) {
     if(id) { this.members[id] = id; }
     return id;
@@ -37,8 +41,10 @@ class Group extends Element{
       //out  += '  '+shape.render();
       out  += '   <!-- '+shapeID+' goes here -->\r\n';
     });
+    
     out += '</g>\r\n';
-    return out;
+    this.html = out;
+    return this.html;
   }
 }//----------------------------------------------------------------------------
 
