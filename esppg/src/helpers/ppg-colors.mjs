@@ -1,6 +1,6 @@
 import { randomInt } from "./ppg-random.mjs";
 
-//Generates a random #RRGGBBAA color-------------------------------------------
+//Generates a random #RRGGBBAA hex color---------------------------------------
 export function randomColor(pal='random') { 
   //Random color palette by default
   let rrr =  0 ;
