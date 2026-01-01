@@ -35,7 +35,18 @@ class Point {
     out += ']';
     console.log(out);
     return out;
-  } 
+  }
+  //------------------------------------------------------------
+  render(size=5, color='gold') {
+    let out = '';
+    out += `<circle `;
+    out += `cx="${this.x}" `;
+    out += `cy="${this.y}" `;
+    out += `r="${size}" `;
+    out += `stroke="${color}" `;
+    out += `/>\r\n`;
+    return out;
+  }
 }//----------------------------------------------------------------------------
 
 export default Point;
