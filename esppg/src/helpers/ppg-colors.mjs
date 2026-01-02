@@ -1,7 +1,7 @@
 import { randomInt } from "./ppg-random.mjs";
 
 //Generates a random #RRGGBBAA hex color---------------------------------------
-export function randomColor(pal='random') { 
+export function randomColor(palette='random') { 
   //Random color palette by default
   let rrr =  0 ;
   let ggg =  0 ;
@@ -9,7 +9,7 @@ export function randomColor(pal='random') {
   let aaa =  randomInt(64,192) ;
   let hex = '#';
 
-  switch (pal) {
+  switch (palette) {
     case 'reds':
       rrr = randomInt(96,256);
       ggg = randomInt(0,96);
@@ -76,9 +76,9 @@ export function randomColor(pal='random') {
       aaa = randomInt(0,256);
   }
 
-  aaa = (pal=='opaque') ?              255  : aaa;
-  aaa = (pal=='clear' ) ?               32  : aaa;
-  aaa = (pal=='tint'  ) ? randomInt(32,160) : aaa;
+  aaa = (palette=='opaque') ?              255  : aaa;
+  aaa = (palette=='clear' ) ?               32  : aaa;
+  aaa = (palette=='tint'  ) ? randomInt(32,160) : aaa;
 
   hex += rrr.toString(16).padStart(2, '0');
   hex += ggg.toString(16).padStart(2, '0');
@@ -88,7 +88,7 @@ export function randomColor(pal='random') {
 }//----------------------------------------------------------------------------
 
 //Syntax sugar for randomColor-------------------------------------------------
-export function RC(pal='') { return randomColor(pal); }
+function RC(palette='') { return randomColor(palette); }
 //-----------------------------------------------------------------------------
 
 //Splits hex colors into their RGBA decimal values----------------------------- 

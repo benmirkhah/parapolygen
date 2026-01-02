@@ -37,14 +37,58 @@ class Point {
     return out;
   }
   //------------------------------------------------------------
-  render(size=5, color='gold') {
+  render(size=3, color='gold', style='circle', text='') {
     let out = '';
+    switch (style) {
+      case 'circle' : out = this.circle(size, color, text);
+      case 'cross'  : out = this.cross( size, color, text);
+      case 'xmark'  : out = this.xmark( size, color, text);
+      default       : out = this.circle(3,'red',this.count());
+    }
+    return out;
+  }
+  //------------------------------------------------------------
+  circle(size=3, color='gold', text='') {
+    let out = '';
+    text = (text=='n') ? this.n : text;
     out += `<circle `;
     out += `cx="${this.x}" `;
     out += `cy="${this.y}" `;
     out += `r="${size}" `;
     out += `stroke="${color}" `;
+    out += `class="point" `;
     out += `/>\r\n`;
+    out += text ? `<text fill="${color}" x="${this.x-size}" y="${this.y+size+15}">${text}</text>\r\n` : '';  
+    return out;
+  }
+  //------------------------------------------------------------
+  xmark(size=3, color='gold', text='') {
+    let out = '';
+    text = (text=='n') ? this.n : text;
+    out += '<path d="';
+    out += ' M '+(this.x-size)+','+(this.y+size);
+    out += ' L '+(this.x+size)+','+(this.y-size);
+    out += ' M '+(this.x+size)+','+(this.y+size);
+    out += ' L '+(this.x-size)+','+(this.y-size);
+    out += `" stroke="${color}" `;
+    out += `class="xmark" `; 
+    out += `/>\r\n`;
+    out += text ? `<text fill="${color}" x="${this.x-size}" y="${this.y+size+10}">${text}</text>\r\n` : '';  
+    return out;
+  }
+  //------------------------------------------------------------
+  cross(size=3, color='gold', text='') {
+    let out = '';
+    text = (text=='n') ? this.n : text;
+    out += '<path d="';
+    out += ' M '+(this.x-size)+','+ this.y;
+    out += ' L '+(this.x+size)+','+ this.y;
+    out += ' M '+ this.x      +','+(this.y-size);
+    out += ' L '+ this.x      +','+(this.y+size);
+    out += `" stroke="${color}" `;
+    out += `class="cross" `; 
+    out += `/>\r\n`;
+    out += text ? `<text fill="${color}" x="${this.x+2}" y="${this.y+size+8}">${text}</text>\r\n` : '';  
     return out;
   }
 }//----------------------------------------------------------------------------

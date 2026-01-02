@@ -2,7 +2,7 @@ import { Element } from "./element.mjs";
 import { makeid } from "../helpers/ppg-random.mjs";
 
 //A group of one or more shapes------------------------------------------------
-class Group extends Element{
+class Group extends Element {
   static count =   1;
   zindex  =        1;
   members = Object();
