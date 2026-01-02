@@ -1,4 +1,4 @@
-import { Element } from "./ppg-element-class.mjs";
+import { Element } from "./element.mjs";
 import { makeid } from "../helpers/ppg-random.mjs";
 
 //A group of one or more shapes------------------------------------------------

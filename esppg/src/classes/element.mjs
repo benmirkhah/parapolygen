@@ -13,7 +13,5 @@ export class Element {
     Element.ecount++;
   }
   //------------------------------------------------------------
-  count() {
-    return Element.ecount;
-  }
+  count() { return Element.ecount; }
 }//----------------------------------------------------------------------------
