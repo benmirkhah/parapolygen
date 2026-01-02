@@ -1,10 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --outline: 0;
 
   color-scheme: light dark;
-  color: #CCCCCC;
   background-color: #333333;
+  color: #CCCCCC;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -12,23 +11,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* { box-sizing: border-box; outline: calc(var(--outline) * 1px) dotted gold; } 
+
 body {
-  margin: 0;
+  margin: 0; 
+  padding: 0; 
+  font-family: monospace;
+  font-size:   1.51911em; /* Exactly 30px */
+  line-height: 1.51911em;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-self: center;
+}
+
+svg { width: 100%; }
+
+#ppgsvg { 
+  width: 100%;
+  display: inline-block;
+  line-height: 0;  /* Removes unwanted padding */
+  color: black;  /* used by SVG bounding box */
+  overflow: hidden;
 }
 
 #ppgui {
+  display: block;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #333;
-    background-color: #999;
-  }
+  :root { background-color: #999;  color: #333; }
 }
