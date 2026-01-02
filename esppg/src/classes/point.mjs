@@ -37,18 +37,18 @@ class Point {
     return out;
   }
   //------------------------------------------------------------
-  render(size=3, color='gold', style='circle', text='') {
+  render(style='circle', text, size, color) {
     let out = '';
     switch (style) {
-      case 'circle' : out = this.circle(size, color, text);
-      case 'cross'  : out = this.cross( size, color, text);
-      case 'xmark'  : out = this.xmark( size, color, text);
-      default       : out = this.circle(3,'red',this.count());
+      case 'circle' : out = this.circle(text, size, color); break;
+      case 'cross'  : out = this.cross( text, size, color); break;
+      case 'xmark'  : out = this.xmark( text, size, color); break;
+      default       : out = this.circle(this.count(),5,'red');
     }
     return out;
   }
   //------------------------------------------------------------
-  circle(size=3, color='gold', text='') {
+  circle(text='', size=4, color='gold') {
     let out = '';
     text = (text=='n') ? this.n : text;
     out += `<circle `;
@@ -62,7 +62,7 @@ class Point {
     return out;
   }
   //------------------------------------------------------------
-  xmark(size=3, color='gold', text='') {
+  xmark(text='', size=3, color='gold') {
     let out = '';
     text = (text=='n') ? this.n : text;
     out += '<path d="';
@@ -77,7 +77,7 @@ class Point {
     return out;
   }
   //------------------------------------------------------------
-  cross(size=3, color='gold', text='') {
+  cross(text='', size=5, color='gold') {
     let out = '';
     text = (text=='n') ? this.n : text;
     out += '<path d="';

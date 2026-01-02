@@ -1,4 +1,4 @@
-import GLOBALS from "./ppg-globals.mjs";
+import GLOBALS from "./globals.mjs";
 
 function DEBUG(x, option = 'log') {
   if (GLOBALS.DEBUG) {

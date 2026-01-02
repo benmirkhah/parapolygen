@@ -1,4 +1,4 @@
-import { randomInt } from "./ppg-random.mjs";
+import { randomInt } from "./randoms.mjs";
 
 //Generates a random #RRGGBBAA hex color---------------------------------------
 export function randomColor(palette='random') { 

@@ -1,5 +1,5 @@
 import { Element } from "./element.mjs";
-import { makeid } from "../helpers/ppg-random.mjs";
+import { makeid } from "../helpers/randoms.mjs";
 
 //A group of one or more shapes------------------------------------------------
 class Group extends Element {
