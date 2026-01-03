@@ -1,4 +1,4 @@
-const SUGAR = {
+const SUGARS = {
   //Value calculation function types-------------------------------------------
   fixed        : 'fixed'       ,  //Stick to a predetermined value
   random       : 'random'      ,  //Pick a random value between min & max
@@ -67,4 +67,6 @@ const SUGAR = {
   umbrella     : 'umbrella'    ,
 }
 //-----------------------------------------------------------------------------
-export default SUGAR;
+for (const key in SUGARS) Object.freeze(SUGARS[key]);
+
+export default Object.freeze(SUGARS);

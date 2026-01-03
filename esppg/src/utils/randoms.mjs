@@ -1,5 +1,5 @@
 import GLOBALS from "./globals.mjs";
-import Point from "../classes/point.mjs";
+import Point   from "../classes/point.mjs";
 
 //Needs to be a builtin JS function, grumble-----------------------------------
 export function randomInt(min = 0, max = 100) {

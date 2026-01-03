@@ -1,5 +1,5 @@
 import { makeid, round } from "./randoms.mjs";
-import Point from "../classes/point.mjs";
+import Point             from "../classes/point.mjs";
 
 //Make SVG fit the current screen size-----------------------------------------
 const WINWIDTH  = (window.innerWidth  || document.documentElement.clientWidth );

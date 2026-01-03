@@ -1,4 +1,4 @@
-import { randomColor } from "../helpers/ppg-colors.mjs";
+import { randomColor } from "../utils/ppg-colors.mjs";
 
 //Stroke parameters of a shape-------------------------------------------------
 class Stroke {
@@ -7,6 +7,15 @@ class Stroke {
     this.opacity = 0.25;
     this.color   = color ? color : randomColor('opaque');
   }
-}//----------------------------------------------------------------------------
+  //------------------------------------------------------------
+  redner () {
+    let out = '';
+    out += 'stroke="'+this.color+'" ';
+    out += (this.width   != 1) ?   'stroke-width="'+this.width  +'" ' : '';
+    out += (this.opacity != 1) ? 'stroke-opacity="'+this.opacity+'" ' : '';
+    return out;
+  }
+}
+//-----------------------------------------------------------------------------
 
 export default Stroke;
