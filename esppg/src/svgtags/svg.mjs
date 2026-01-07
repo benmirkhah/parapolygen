@@ -1,4 +1,4 @@
-import GLOBALS         from "../utils/globals.mjs";
+import G               from "../utils/globals.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import svgStyle        from "./style.mjs";
 import svgDefs         from "./defs.mjs";
@@ -12,7 +12,7 @@ function svgTag(svgid='S777') {
   let out = '';
   out += '<svg ';
   out += `id="${svgid}" `;
-  out += `viewBox="0 0 ${GLOBALS.WIDTH} ${GLOBALS.HEIGHT}" `;
+  out += `viewBox="0 0 ${G.WIDTH} ${G.HEIGHT}" `;
   out += `fill="none" `;
   out += 'preserveAspectRatio="xMinYMid slice" ';
   out += `xmlns="${xmlns}" `;
@@ -22,7 +22,7 @@ function svgTag(svgid='S777') {
   out += 'stroke-linejoin="round" ';
   out += '>\r\n';
   //SVG Begins---------------------------------------------
-  out += svgStyle(svgid);       //Add CSS
+  out += svgStyle();            //Add CSS
   out += svgDefs();             //Add Filters & Gradients
   out += svgBox();              //Add Background Color
   //out += svgShowGrid(svgid);    //Add Grids if any
@@ -31,7 +31,7 @@ function svgTag(svgid='S777') {
   const P1 = randomPoint();
   const P2 = randomPoint();
 
-  out += GLOBALS.MID.render('circle','MID');
+  out += G.MID.render('circle','MID');
   out += P1.render('cross','P1');
   out += P2.render('xmark','P2');
 

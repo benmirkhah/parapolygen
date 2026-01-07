@@ -1,5 +1,5 @@
-import GLOBALS from "./globals.mjs";
-import Point   from "../classes/point.mjs";
+import G     from "./globals.mjs";
+import Point from "../classes/point.mjs";
 
 //Needs to be a builtin JS function, grumble-----------------------------------
 export function randomInt(min = 0, max = 100) {
@@ -77,13 +77,13 @@ export function randomize(array = []) {
 }//----------------------------------------------------------------------------
 
 //Return a random X cordinate within viewable boundry--------------------------
-export function randX(min=1, max=GLOBALS.WIDTH, factor=10) {
+export function randX(min=1, max=G.WIDTH, factor=10) {
   return round(randomInt(min, max), factor);
 }
 //-----------------------------------------------------------------------------
 
 //Return a random Y cordinate within viewable boundry--------------------------
-export function randY(min=1, max=GLOBALS.HEIGHT, factor=10) {
+export function randY(min=1, max=G.HEIGHT, factor=10) {
   return round(randomInt(min, max), factor);
 }
 //-----------------------------------------------------------------------------
