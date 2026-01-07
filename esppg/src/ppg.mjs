@@ -1,5 +1,5 @@
-const VERSION = '0.020'; //Commits + 1
-import './style.css'  with { type: "css" };
+const VERSION = '0.021'; //Commits + 1
+//import './style.css'  with { type: "css" };
 import svgTag     from './svgtags/svg.mjs';
 import G          from './utils/globals.mjs';
 
@@ -13,6 +13,6 @@ HISTORY.unshift(G.SVGID); //Adds newest id on top
 FILES[G.SVGID] = SVG;     //Store the rendered file
 if (HISTORY.length > 5) { //Keep the last 5 files only 
   delete FILES[HISTORY.pop()];
-}
-CL(FILES);
+} //CL(FILES);
+
 document.querySelector('#ppgsvg').innerHTML = SVG;
