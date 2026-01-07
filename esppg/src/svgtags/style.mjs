@@ -1,15 +1,18 @@
+import GLOBALS from "../utils/globals.mjs";
+import RC      from "../utils/colors.mjs";
+
 //Generates random colors as CSS variables------------------------------------- 
 function colorVars(pal = [ '#00000000' ]) {
   let extra  = '';
   let output = '  --c0:  #00000000; \r\n';
 
-  for (let i=1; i <= colors; i++) {
-    pal[i] = randomColor();
+  for (let i=1; i <= GLOBALS.COLORS; i++) {
+    pal[i] = RC();
     extra  = ((i < 10)) ? ' ' : '';
     output += '  --c' + i + ': '+extra+ pal[i] + ((i % 5) ? ';' : ';\r\n');
   }
 
-  output += '  --c-count: '+colors+';\r\n';
+  output += '  --c-count: '+GLOBALS.COLORS+';\r\n';
   return output;
 }//----------------------------------------------------------------------------
 

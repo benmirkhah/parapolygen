@@ -1,5 +1,7 @@
 import GLOBALS         from "../utils/globals.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
+import svgStyle        from "./style.mjs";
+import svgDefs         from "./defs.mjs";
 
 //Wraps everything in the <svg> element tag------------------------------------
 function svgTag(svgid='S777') {
@@ -19,8 +21,8 @@ function svgTag(svgid='S777') {
   out += 'stroke-linejoin="round" ';
   out += '>\r\n';
   //SVG Begins---------------------------------------------
-  //out += svgStyle(svgid);       //Add CSS
-  //out += svgDefs(svgid);        //Add Filters & Gradients
+  out += svgStyle(svgid);       //Add CSS
+  out += svgDefs(svgid);        //Add Filters & Gradients
   //out += svgBoundingBox(svgid); //Add Background Color
   //out += svgShowGrid(svgid);    //Add Grids if any
   //out += svgContent(svgid);     //Add all the shapes

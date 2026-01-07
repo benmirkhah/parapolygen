@@ -1,20 +1,18 @@
+const VERSION = '0.016'; //Commits + 1
 import './style.css';
-import { makeid } from './helpers/ppg-random.mjs';
-import Group from './classes/ppg-group-class.mjs';
-import DEBUG from './helpers/ppg-debug.mjs';
+import svgTag     from './svgtags/svg.mjs';
+import G          from './utils/globals.mjs';
 
-let g1 = new Group('g1');
+function CL(x) { return G.DEBUG ? console.log(x) : false; }
 
-g1.add('richard');
-g1.add('dick');
-g1.add('robert');
-g1.add('bob');
-g1.remove('dick');
+const SVG     = svgTag(G.SVGID);
+const FILES   = {};
+const HISTORY = [];
 
-DEBUG(g1.render());
-DEBUG(g1);
-
-let g2 = new Group('g2');
-DEBUG(g2);
-
-document.querySelector('#ppgui').innerHTML = `<h1>HELLO ${makeid()}</h1>`;
+HISTORY.unshift(G.SVGID); //Adds newest id on top
+FILES[G.SVGID] = SVG;     //Store the rendered file
+if (HISTORY.length > 5) { //Keep the last 5 files only 
+  delete FILES[HISTORY.pop()];
+}
+CL(FILES);
+document.querySelector('#ppgsvg').innerHTML = SVG;
