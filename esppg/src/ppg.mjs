@@ -1,5 +1,5 @@
-const VERSION = '0.019'; //Commits + 1
-import './style.css';
+const VERSION = '0.020'; //Commits + 1
+import './style.css'  with { type: "css" };
 import svgTag     from './svgtags/svg.mjs';
 import G          from './utils/globals.mjs';
 
