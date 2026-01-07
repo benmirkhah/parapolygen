@@ -15,6 +15,7 @@ const GLOBALS   = {
   WIDTH   : WIDTH,
   HEIGHT  : HEIGHT,
   COLORS  : 40,
+  BGC     : '#333333FF', //Background color
   TLC     : new Point({ x:0     , y:0      }),
   TRC     : new Point({ x:WIDTH , y:0      }),
   BLC     : new Point({ x:0     , y:HEIGHT }),
@@ -24,4 +25,6 @@ const GLOBALS   = {
 };
 for (const key in GLOBALS) Object.freeze(GLOBALS[key]);
 
-export default Object.freeze(GLOBALS);
+const G = Object.freeze(GLOBALS);
+
+export default G;

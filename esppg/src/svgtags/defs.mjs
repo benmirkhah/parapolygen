@@ -1,13 +1,13 @@
 import filters from "../filters/filters.mjs";
 
 //Output the render all the filters--------------------------------------------
-function svgGradients(svgid) {
-  let out = '<!-- '+svgid+' -->';
+function svgGradients() {
+  let out = '';
   return out;
 }//----------------------------------------------------------------------------
 
 //Output the render all the filters--------------------------------------------
-function svgFilters(svgid) {
+function svgFilters() {
   let out = '';
   Object.keys(filters).forEach(filter => { 
     out += filters[filter].render();
@@ -16,8 +16,8 @@ function svgFilters(svgid) {
 }//----------------------------------------------------------------------------
 
 //Adds the <defs> element for gradients and filters to reside in---------------
-function svgDefs(svgid) {
-  return '<defs>\r\n' + svgGradients(svgid) + svgFilters(svgid) + '</defs>\r\n';
+function svgDefs() {
+  return '<defs>\r\n' + svgGradients() + svgFilters() + '</defs>\r\n';
 }//----------------------------------------------------------------------------
 
 export default svgDefs;
