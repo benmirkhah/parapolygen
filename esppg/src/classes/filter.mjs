@@ -2,7 +2,7 @@ import { Element } from "./element.mjs";
 
 //Best part of SVG is the filter-----------------------------------------------
 class Filter extends Element {
-  static count =  0; //Number of filters
+  static total =  0; //Number of filters
   static stack = []; //Active filters
   static sleep = []; //Inactive ones
   //FOR FUTURE USE
@@ -16,7 +16,7 @@ class Filter extends Element {
       this.id     =     id;
       this.html   =   html;
       this.active = active;
-      Filter.count++;
+      Filter.total++;
       if (active) {
         Filter.stack[Filter.stack.length] = this.id;
       } else {
@@ -27,7 +27,7 @@ class Filter extends Element {
     }
   }
   //------------------------------------------------------------
-  count() { return Filter.count; }
+  total() { return Filter.total; }
   //------------------------------------------------------------
   stack() { return Filter.stack; }
   //------------------------------------------------------------

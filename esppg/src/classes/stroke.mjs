@@ -1,4 +1,4 @@
-import { randomColor } from "../utils/ppg-colors.mjs";
+import { randomColor } from "../utils/colors.mjs";
 
 //Stroke parameters of a shape-------------------------------------------------
 class Stroke {

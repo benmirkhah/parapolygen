@@ -1,6 +1,6 @@
 //Any point on either a Cartesian or Radial grid-------------------------------
 class Point {
-  static count = 0;
+  static total = 0;
 
   constructor({
     id = '',  //Name (center, tlc, grid #, etc.)
@@ -11,7 +11,7 @@ class Point {
     r  =  0,
     a  =  0,
   } = {}) { //To conserve memory only x,y are assigned by default
-    Point.count++;
+    Point.total++;
     this.x  =  x;
     this.y  =  y;
     if(id) this.id = id;
@@ -21,7 +21,7 @@ class Point {
     if(z)  this.z  =  z;
   } 
   //------------------------------------------------------------
-  count() { return Point.count; }
+  total() { return Point.total; }
   //------------------------------------------------------------
   log() {
     let out = 'p[ ';

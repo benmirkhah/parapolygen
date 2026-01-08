@@ -1,6 +1,6 @@
 //Position parameters of each shape--------------------------------------------
 class Position {
-  static count = 0;
+  static total = 0;
 
   constructor(kind='center') {
     this.kind   = kind;
@@ -9,10 +9,10 @@ class Position {
     this.trc    = new Point({id:'trc'});
     this.blc    = new Point({id:'blc'});
     this.brc    = new Point({id:'brc'});
-    Position.count++;
+    Position.total++;
   }
   //------------------------------------------------------------
-  count() { return Position.count; }
+  total() { return Position.total; }
 }//----------------------------------------------------------------------------
 
 export default Position;

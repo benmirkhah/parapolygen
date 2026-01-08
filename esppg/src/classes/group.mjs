@@ -3,19 +3,38 @@ import { makeid  } from "../utils/randoms.mjs";
 
 //A group of one or more shapes------------------------------------------------
 class Group extends Element {
-  static count =   1;
+  static total =   1;
+  static stack =  []; //Active Groups
+  static sleep =  []; //Inactive ones  
+  active  =     true; 
   zindex  =        1;
   members = Object();
   //------------------------------------------------------------
-  constructor(id = 'G'+makeid(), members = {}, cname = '') {
+  constructor(id = 'G'+makeid(), members = {}, cname = '', active = true) {
     super({'id':id, 'cname':cname });
-    this.zindex  = Group.count++;
-    if (members.length) { 
-      this.members = { ...members };
-    }
+    this.zindex  = Group.total++;
+    this.active  = active;
+    
+    if (members.length) this.members = { ...members };
+    if ( active) Group.stack[Group.stack.length] = this.id;
+    if (!active) Group.sleep[Group.sleep.length] = this.id;
   }
   //------------------------------------------------------------
-  count() { return Group.count; }
+  total() { return Group.total; }
+  //------------------------------------------------------------
+  enable() {
+    if (this.active) return 'already-active';
+    this.active = true;
+    Group.stack[Group.stack.length] = this.id;
+    //TODO: REMOVE FROM SLEEP
+  }
+  //------------------------------------------------------------
+  disable() {
+    if (!this.active) return 'already-disabled';
+    this.active = false;
+    Group.sleep[Group.sleep.length] = this.id;
+    //TODO: REMOVE FROM STACK 
+  }
   //------------------------------------------------------------
   add(id = 0) {
     if(id) { this.members[id] = id; }

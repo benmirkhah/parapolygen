@@ -1,49 +1,61 @@
-import s from "../utils/ppg-sugar.mjs";
+//Syntax Sugar
+const self           = 'self'        ;
+const fixed          = 'fixed'       ;
+const group          = 'group'       ;
+const random         = 'random'      ;
+const system         = 'system'      ;
+const interval       = 'interval'    ;
+const surprise       = 'surprise'    ;
+const alternate      = 'alternate'   ;
+const geometric      = 'geometric'   ;
+const functional     = 'functional'  ;
+const exponential    = 'exponential' ;
+const incremental    = 'incremental' ;
+const logarithmic    = 'logarithmic' ;
 
-const ValFuncTypes = [
-  s.surprise       , //zero index to be exculded from surprise pick
-  s.random         , //most often used
-  s.ongrid         , //second most popular 
-  s.fixed          , //third popular
-  s.incremental    , //fourth
-  s.exponential    , //
-  s.logarithmic    , //
-  s.functional     , //
-  s.groupgrid      , //
-  s.alternate      , //
-  s.geometric      , //
-  s.intervals      , //
-  s.selfgrid       , //
-  s.sysgrid        , //
+const FuncionTypes = [
+  surprise         , //zero index to be exculded from surprise pick
+  random           , //most often used
+  system           , //second most popular 
+  group            , //third popular
+  fixed            , //fourth popular
+  incremental      ,
+  exponential      ,
+  logarithmic      ,
+  functional       ,
+  alternate        ,
+  geometric        ,
+  interval         ,
+  self             ,
 ];
 
 const fixedOptions = {
-   fun:     s.fixed, //Function Type
-   par:           0, //Parameter (delta, scaler, angle, etc.) 
+   fun: fixed, //Function Type
+   par:     0, //Parameter (delta, scaler, angle, etc.) 
 };
 
 const randomOptions = {
-  fun: s.random,
-  min:        0,
-  max:      100,
+  fun: random,
+  min:      0,
+  max:    100,
 };
 
 const incrementalOptions = {
-  fun: s.incremental,
-  par:            10, //Delta parameter
-  onn:             1, //On interval
-  off:             1, //Off interval
-  alt:      s.random,
+  fun: incremental,
+  par:          10, //Delta parameter
+  onn:           1, //On interval
+  off:           1, //Off interval
+  alt:      random,
 };
 
 
 //Any value needing constraints or parametric functions------------------------
-class Val {
+class Value {
   id  =  'anon';
-  fun = 'fixed';
+  fun =   fixed;
   val =       0;
 
-  constructor(val = 0, id = 'anon', options = defaultRandomOptions) {
+  constructor(val = 0, id = 'anon', options = randomOptions) {
     this.id       = id;
     this.val      = val;
     this.options  = options;
@@ -57,9 +69,9 @@ class Val {
     }
 
     switch (this.fun) {
-      case     'fixed': this.val = this.options.par;                                break;
-      case    'random': this.val = this.random(this.options.min, this.options.max); break;
-      case 'alternate': this.val = this.alternate(this.options);                    break;
+      case      fixed: this.val = this.options.par;                                break;
+      case     random: this.val = this.random(this.options.min, this.options.max); break;
+      case  alternate: this.val = this.alternate(this.options);                    break;
     }
 
     return this.val;
@@ -73,4 +85,4 @@ class Val {
 
   }
 }//----------------------------------------------------------------------------
-export default Val;
+export default Value;
