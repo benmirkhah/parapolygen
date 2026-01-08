@@ -1,7 +1,7 @@
 import { Element } from "./element.mjs";
 
 //Best part of SVG is the filter-----------------------------------------------
-export class Filter extends Element {
+class Filter extends Element {
   static count =  0; //Number of filters
   static stack = []; //Active filters
   static sleep = []; //Inactive ones
@@ -35,3 +35,5 @@ export class Filter extends Element {
   //------------------------------------------------------------
   render() { return this.html; }
 }//----------------------------------------------------------------------------
+
+export default Filter;

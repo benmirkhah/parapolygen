@@ -1,5 +1,5 @@
-import { Filter } from "../classes/filter.mjs";
-import G from "../utils/globals.mjs";
+import Filter from "../classes/filter.mjs";
+import G      from "../utils/globals.mjs";
 
 function bnwFilter() {
   let out = '';

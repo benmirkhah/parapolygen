@@ -25,8 +25,8 @@ function svgTag(svgid='S777') {
   out += svgStyle();            //Add CSS
   out += svgDefs();             //Add Filters & Gradients
   out += svgBox();              //Add Background Color
-  //out += svgShowGrid(svgid);    //Add Grids if any
-  //out += svgContent(svgid);     //Add all the shapes
+  //out += svgShowGrid();         //Add Grids if any
+  //out += svgContent();          //Add all the shapes
   
   const P1 = randomPoint();
   const P2 = randomPoint();

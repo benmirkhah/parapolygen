@@ -1,13 +1,13 @@
-import { Filter    } from "../classes/filter.mjs";
-import { randomInt } from "../utils/randoms.mjs";
-import G from "../utils/globals.mjs";
+import Filter from "../classes/filter.mjs";
+import RI     from "../utils/randoms.mjs";
+import G      from "../utils/globals.mjs";
 
 function pointlightFilter() {
   let out = '';
-  let x = randomInt(G.WIDTH  * 0.1, G.WIDTH  * 0.9);
-  let y = randomInt(G.HEIGHT * 0.1, G.HEIGHT * 0.9);
-  let c = randomInt(1, G.COLORS);
-  let z = randomInt(100,   1000);
+  let x = RI(G.WIDTH  * 0.1, G.WIDTH  * 0.9);
+  let y = RI(G.HEIGHT * 0.1, G.HEIGHT * 0.9);
+  let c = RI(1, G.COLORS);
+  let z = RI(100,   1000);
   out += '<filter id="'+G.SVGID+'-pointlight">\r\n';
   out += `  <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="var(--c${c})">\r\n`;
   out += `    <fePointLight x="${x}" y="${y}" z="${z}" />\r\n`;

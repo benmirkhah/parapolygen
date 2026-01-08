@@ -1,14 +1,14 @@
-import { Filter    } from "../classes/filter.mjs";
-import { randomInt } from "../utils/randoms.mjs";
-import G from "../utils/globals.mjs";
+import Filter from "../classes/filter.mjs";
+import RI     from "../utils/randoms.mjs";
+import G      from "../utils/globals.mjs";
 
 function oblivionFilter() {
   let out = '';
-  let x = randomInt(G.WIDTH  * 0.5, G.WIDTH  * 0.75);
-  let y = randomInt(G.HEIGHT * 0.5, G.HEIGHT * 0.75);
-  let w = randomInt(1, x);
-  let h = randomInt(1, y);    
-  let r = randomInt(300, 500);
+  let x = RI(G.WIDTH  * 0.5, G.WIDTH  * 0.75);
+  let y = RI(G.HEIGHT * 0.5, G.HEIGHT * 0.75);
+  let w = RI(1, x);
+  let h = RI(1, y);    
+  let r = RI(300, 500);
   r = r+' '+r;  //r = r%2 ? '0 '+r : r+' 0';
   out += '<filter id="'+G.SVGID+'-oblivion">\r\n';
   out += `  <feTile in="SourceGraphic" x="${x}" y="${y}" width="${w}" height="${h}" />\r\n`;
