@@ -1,23 +1,26 @@
 import { Element } from "./element.mjs";
 import { makeid  } from "../utils/randoms.mjs";
+import RC          from "../utils/colors.mjs";
 
 //A group of one or more shapes------------------------------------------------
 class Group extends Element {
   static total =   1;
-  static stack =  []; //Active Groups
-  static sleep =  []; //Inactive ones  
-  active  =     true; 
-  zindex  =        1;
-  members = Object();
+  static stack =  []; //Active Group IDs
+  static sleep =  []; //ID of inactive ones  
+  active =      true; 
+  zindex =         1;
+  idlist =  Object(); //Keeps track of the member element IDs
+  shapes =  Object(); //Count of each member shape
   //------------------------------------------------------------
-  constructor(id = 'G'+makeid(), members = {}, cname = '', active = true) {
+  constructor(id = 'G'+makeid(), idlist = {}, cname = '', color='', active = true) {
     super({'id':id, 'cname':cname });
     this.zindex  = Group.total++;
     this.active  = active;
     
-    if (members.length) this.members = { ...members };
+    if (idlist.length) this.idlist = { ...idlist };
     if ( active) Group.stack[Group.stack.length] = this.id;
     if (!active) Group.sleep[Group.sleep.length] = this.id;
+    if (color)   color = (color == 'random')? RC() : color;      
   }
   //------------------------------------------------------------
   total() { return Group.total; }
@@ -37,13 +40,13 @@ class Group extends Element {
   }
   //------------------------------------------------------------
   add(id = 0) {
-    if(id) { this.members[id] = id; }
+    if(id) { this.idlist[id] = id; }
     return id;
   }
   //------------------------------------------------------------
   remove(id = 0) {
-    if(Object.hasOwn(this.members, id)) {
-      delete this.members[id]; 
+    if(Object.hasOwn(this.idlist, id)) {
+      delete this.idlist[id]; 
     }
     return id;
   }
