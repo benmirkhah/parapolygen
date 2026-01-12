@@ -1,12 +1,13 @@
 //Template class for all parametric iterator functions to extend---------------
 class Parametric {
   static total = 0;
-  static onnC  = 0;  //Count number of on
-  static offC  = 0;  //Count number of off
+  static onnC  = 0;  //Count number of on (value used)
+  static offC  = 0;  //Count number of off (altv used)
 
   constructor({ 
     kind  = 'fixed', 
-    value = 0,
+    value = 0, 
+    mode  = 1, //Starting mode (1 uses value, 0 uses altv)
     param = 0, //Value of delta, scaler, etc. 
     every = 0, //Stay on number (use value)
     altv  = 0, //Alternate value
@@ -15,6 +16,7 @@ class Parametric {
     pname = '' //Name of delta, scaler, etc.
   } = {}) {
     this.kind  = kind;
+    this.mode  = mode;
     this.value = value;
     if(param) this.start = value; //Initial value
     if(param) this.param = param;
