@@ -11,7 +11,8 @@ class Parametric {
     mode  = 1, //Starting mode (1 uses value, 0 uses altv)
     param = 0, //Value of delta, scaler, etc. 
     every = 0, //Stay on number (use value)
-    altv  = 0, //Alternate value
+    altv  = 0, //Alternate value (Fixed if altp is 0)
+    altp  = 0, //Alternate param
     skip  = 0, //Stay off number (use altv)
     done  = 0, //Max iteration number
     pname = '' //Name of delta, scaler, etc.
@@ -23,6 +24,7 @@ class Parametric {
     if(pname) this.pname = pname;
     if(every) this.every = every;
     if(altv ) this.altv  =  altv;
+    if(altp ) this.altp  =  altp;
     if(skip ) this.skip  =  skip;
     if(done ) this.done  =  done;
     if(param) this.start = value; //Initial value

@@ -16,6 +16,14 @@ This is a work in progress, so far the following works...
   <li>Points with 3 types of render options (circle, crosshair, x-mark)</li>
 </ul>
 
+Parametric iterators
+<ul>
+  <li>Alternating</li>
+  <li>Incremental</li>
+  <!-- <li>Exponential</li> -->
+  <!-- <li>Geometrical</li> -->
+  <!-- <li>Logarithmic</li> -->
+</ul>
 
 Comming soon...
 <ul>
