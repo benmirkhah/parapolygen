@@ -2,6 +2,16 @@ import { Element } from "./element.mjs";
 import { makeid  } from "../utils/randoms.mjs";
 import RC          from "../utils/colors.mjs";
 
+export let allGroups = {}; 
+
+export function getGroup(id='builtin') {
+  let out = '';
+  if(Object.hasOwn(allGroups, id)) {
+    out = allGroups[id]; 
+  }  
+  return out;
+}
+
 //A group of one or more shapes------------------------------------------------
 class Group extends Element {
   static total =   1;
@@ -16,11 +26,12 @@ class Group extends Element {
     super({'id':id, 'cname':cname });
     this.zindex  = Group.total++;
     this.active  = active;
+    allGroups[id]= this;
     
     if (idlist.length) this.idlist = { ...idlist };
     if ( active) Group.stack[Group.stack.length] = this.id;
     if (!active) Group.sleep[Group.sleep.length] = this.id;
-    if (color)   color = (color == 'random')? RC() : color;      
+    if (color)   color = (color == 'random')? RC() : color;  
   }
   //------------------------------------------------------------
   total() { return Group.total; }
