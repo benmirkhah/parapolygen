@@ -4,7 +4,8 @@ class Parametric {
   static onnC  = 0;  //Count number of on (value used)
   static offC  = 0;  //Count number of off (altv used)
 
-  constructor({ 
+  constructor({
+    id    = '',
     kind  = 'fixed', 
     value = 0, 
     mode  = 1, //Starting mode (1 uses value, 0 uses altv)
@@ -15,16 +16,17 @@ class Parametric {
     done  = 0, //Max iteration number
     pname = '' //Name of delta, scaler, etc.
   } = {}) {
-    this.kind  = kind;
-    this.mode  = mode;
-    this.value = value;
-    if(param) this.start = value; //Initial value
+    if(id) this.id =    id;
+    this.kind      =  kind;
+    this.value     = value;
     if(param) this.param = param;
     if(pname) this.pname = pname;
     if(every) this.every = every;
-    if(altv)  this.altv  =  altv;
-    if(skip)  this.skip  =  skip;
-    if(done)  this.done  =  done;
+    if(altv ) this.altv  =  altv;
+    if(skip ) this.skip  =  skip;
+    if(done ) this.done  =  done;
+    if(param) this.start = value; //Initial value
+    this.mode  = mode;
 
     Parametric.total++;
   }

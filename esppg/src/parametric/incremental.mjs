@@ -29,13 +29,16 @@ class Incremental extends Parametric {
   //------------------------------------------------------------
   next() {
     let swap = 0; //Toggle not needed
-    let done = (Incremental.count < this.done) ? false : true;
     let out  = new Object(null);
-    out['done'] = done;
 
-    if (done) { //Don't waste time when done
-      out['value'] = this.reset();
-      return out;
+    if(this.done) { //Done value was provided in options 
+      out['done'] = (Incremental.count < this.done) ? false : true;
+      if (out['done']) {//Don't waste time when done
+        out['value'] = this.reset();
+        return out;
+      }
+    } else { //Never ending iterator was requested in options
+      out['done'] = false;
     }
     
     if (this.every < 2) { //Don't bother calculating every/skip/mode 

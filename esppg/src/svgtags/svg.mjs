@@ -1,14 +1,14 @@
-import G               from "../utils/globals.mjs";
-import { randomPoint } from "../utils/randoms.mjs";
-import svgStyle        from "./style.mjs";
-import svgDefs         from "./defs.mjs";
-import svgBox          from "./box.mjs"
+import G          from "../utils/globals.mjs";
+import svgContent from "./content.mjs";
+import svgStyle   from "./style.mjs";
+import svgGrids   from "./grids.mjs";
+import svgDefs    from "./defs.mjs";
+import svgBox     from "./box.mjs"
 
-//Wraps everything in the <svg> element tag------------------------------------
+//Wraps the entire rendered elements with the <svg> tag------------------------
 function svgTag(svgid='S777') {
   const xmlns = "http://www.w3.org/2000/svg";
   const xlink = "http://www.w3.org/1999/xlink";
-  //counter = resetCounter();
   let out = '';
   out += '<svg ';
   out += `id="${svgid}" `;
@@ -22,24 +22,12 @@ function svgTag(svgid='S777') {
   out += 'stroke-linejoin="round" ';
   out += '>\r\n';
   //SVG Begins---------------------------------------------
-  out += svgStyle();            //Add CSS
-  out += svgDefs();             //Add Filters & Gradients
-  out += svgBox();              //Add Background Color
-  //out += svgShowGrid();         //Add Grids if any
-  //out += svgContent();          //Add all the shapes
-  
-  const P1 = randomPoint();
-  const P2 = randomPoint();
-
-  out += G.MID.render('circle','MID');
-  out += P1.render('cross','P1');
-  out += P2.render('xmark','P2');
-
-
-
-
-
-  out += '</svg>\r\n';          //Have a nice day
+  out += svgStyle();            //Add CSS rules & vars
+  out += svgDefs();             //Add filters & gradients
+  out += svgBox();              //Add bounding box background color
+  out += svgGrids();            //Add all the grids
+  out += svgContent();          //Add all the shapes
+  out += '</svg>\r\n';          //Have a nice day bye
   return out;
 }//----------------------------------------------------------------------------
 
