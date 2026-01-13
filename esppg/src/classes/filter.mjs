@@ -3,8 +3,8 @@ import { Element } from "./element.mjs";
 //Best part of SVG is the filter-----------------------------------------------
 class Filter extends Element {
   static total =  0; //Number of filters
-  static stack = []; //Active filters
-  static sleep = []; //Inactive ones
+  static stack = []; //Active filter IDs
+  static sleep = []; //Inactive dilter IDs
   //FOR FUTURE USE
   //unitf = 'objectBoundingBox';
   //unitp = 'userSpaceOnUse';
