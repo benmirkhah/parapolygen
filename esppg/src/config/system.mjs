@@ -1,5 +1,6 @@
 import G           from "../utils/globals.mjs";
 import RC          from "../utils/colors.mjs";
+import Fill        from "../classes/fill.mjs";
 import Grid        from "../classes/grid.mjs";
 import Size        from "../classes/size.mjs";
 import Stroke      from "../classes/stroke.mjs";
@@ -42,11 +43,11 @@ function systemConf() {
   sys.stroke                =                        new Stroke;
   sys.stroke.width          =                                 1;
   //--------------------------------------------------------FILL
-  sys.fill                  =                      new Object();
+  sys.fill                  =                          new Fill;
   sys.fill.kind             =                             solid;
   sys.fill.color            =                              RC();  
   //------------------------------------------------------FILTER
-  sys.filter                =                      new Object();
+  sys.filter                =                        new Object;
   sys.filter.chaos          =                          disabled;
   sys.filter.watercolor     =                          disabled;
   //-------------------------------------------------------SCALE
@@ -54,7 +55,7 @@ function systemConf() {
   sys.scale                 =                          disabled;
   sys.skew                  =                          disabled;
   //------------------------------------------------------EVENTS
-  sys.events                =                       new Object()
+  sys.events                =                        new Object;
   sys.events.onclick        =                          disabled;
   //------------------------------------------------------------
   return sys;
