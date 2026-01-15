@@ -8,7 +8,7 @@ const HEIGHT    = (typeof(SVGHEIGHT)  == 'number') ? SVGHEIGHT : WINHEIGHT;
 const WIDTH     = (typeof(SVGWIDTH )  == 'number') ? SVGWIDTH  : WINWIDTH;
 const GLOBALS   = {
   DEBUG   : true,
-  SVGID   : 'S'+makeid(7),
+  SVGID   : makeid(4),
   TOTAL   : 0,
   WINW    : WINWIDTH,
   WINH    : WINHEIGHT,

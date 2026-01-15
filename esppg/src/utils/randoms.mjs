@@ -36,8 +36,19 @@ export function bighex() {
   return OH;
 }//----------------------------------------------------------------------------
 
+//Make a unique base 32 ID----------------------------------------------------- 
+export function makeid (length = 5) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVW123456789'; //32 characters
+  let id = chars[Math.floor(Math.random() * 22)] //Make sure first character is not numeric
+  for (let i = 1; i < length; i++) {
+    const rand = Math.floor(Math.random() * chars.length)
+    id += chars[rand]
+  }
+  return id;
+}//----------------------------------------------------------------------------
+
 //Make a unique ID based on performance.now() + 2 random digits----------------
-export function makeid(length = 6) {
+export function perfid(length = 6) {
   length = (length>18) ? 18 : length; 
   length = (length< 4) ?  3 : length;
   let id = bighex();
@@ -97,10 +108,8 @@ export function randomRadial() { return new Point({r:randR(), y:randA()}); }
 //-----------------------------------------------------------------------------
 
 //CSS clamp, but in JS---------------------------------------------------------
-export function clamp(value, min, max) {
-  return min < max
-    ? (value < min ? min : value > max ? max : value)
-    : (value < max ? max : value > min ? min : value);
+export function clamp (num, min, max) {
+  return Math.max(min, Math.min(num, max))
 }
 //-----------------------------------------------------------------------------
 
