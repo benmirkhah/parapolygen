@@ -1,11 +1,14 @@
 import { makeid, round } from "./randoms.mjs";
 import Point             from "../classes/point.mjs";
-
+//---------------------------------------------------
+const SVGHEIGHT = null; //Hardcode it here if needed
+const SVGWIDTH  = null; //Hardcode it here if needed
 //Make SVG fit the current screen size-----------------------------------------
 const WINWIDTH  = (window.innerWidth  || document.documentElement.clientWidth );
 const WINHEIGHT = (window.innerHeight || document.documentElement.clientHeight);
 const HEIGHT    = (typeof(SVGHEIGHT)  == 'number') ? SVGHEIGHT : WINHEIGHT;
 const WIDTH     = (typeof(SVGWIDTH )  == 'number') ? SVGWIDTH  : WINWIDTH;
+//-----------------------------------------------------------------------------
 const GLOBALS   = {
   DEBUG   : true,
   SVGID   : makeid(4),
@@ -23,8 +26,8 @@ const GLOBALS   = {
   MID     : new Point({ x:round(WIDTH /2), 
                         y:round(HEIGHT/2)  }),
 };
+//Make the object immutable-------------------------------------
 for (const key in GLOBALS) Object.freeze(GLOBALS[key]);
-
 const G = Object.freeze(GLOBALS);
-
+//-----------------------------------------------------------------------------
 export default G;
