@@ -1,6 +1,6 @@
 //Generic element template to build other elements from------------------------
 export class Element {
-  static etotal = 0; //Number of instances
+  static total = 0; //Number of instances
 
   constructor ({
     id    =  '',
@@ -10,8 +10,8 @@ export class Element {
     this.id    =    id;
     this.cname = cname;
     this.html  =  html;
-    Element.etotal++;
+    Element.total++;
   }
   //------------------------------------------------------------
-  total() { return Element.etotal; }
+  total() { return Element.total; }
 }//----------------------------------------------------------------------------

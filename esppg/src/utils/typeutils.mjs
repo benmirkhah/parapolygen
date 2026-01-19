@@ -17,3 +17,5 @@ export function isInt   (x) { return isNumber(x) && x === Math.floor(x); }
 //-----------------------------------------------------------------------------
 export function isObj   (x) { return !isNull(x) && !isArray(x) && typeof x === 'object'; }
 //-----------------------------------------------------------------------------
+export function isFunc   (x) { return !isNull(x) && !isArray(x) && typeof x === 'function'; }
+//-----------------------------------------------------------------------------
