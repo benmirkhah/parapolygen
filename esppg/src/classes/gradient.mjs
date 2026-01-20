@@ -1,6 +1,7 @@
 import { Element }     from "./element.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import RC              from "../utils/colors.mjs";
+import G               from "../utils/globals.mjs";
 
 export let allGradients = {};
 
@@ -20,7 +21,8 @@ class Gradient extends Element {
     //if gridient type not provided in args flip a coin and pick one randomly
     this.kind = kind ? kind : ( (Math.random() < 0.5) ? 'linear' : 'radial' );
     this.id   = ((this.kind=='radial') ? 'RG' : 'LG') + Gradient.count;
-    allGradients[this.id] = this;
+    this.id   = G.SVGID + this.id;
+    allGradients[this.id] =  this;
   }
   //------------------------------------------------------------
   count() { return Gradient.count; }
