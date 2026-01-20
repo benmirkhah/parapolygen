@@ -1,4 +1,4 @@
-const VERSION = '0.041'; //Commits + 1
+const VERSION = '0.042'; //Commits + 1
 import G      from './utils/globals.mjs';
 import svgTag from './svgtags/svg.mjs';
 import config from './config/config.mjs';

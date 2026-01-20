@@ -1,5 +1,9 @@
 import G               from "../utils/globals.mjs";
+import RC              from "../utils/colors.mjs";
+import Fill            from "../classes/fill.mjs";
 import Point           from "../classes/point.mjs";
+import Circle          from "../shapes/circle.mjs";
+import Stroke          from "../classes/stroke.mjs";
 import { allGroups }   from "../classes/group.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import Incremental     from "../parametric/incremental.mjs";
@@ -14,25 +18,21 @@ function svgContent() {
   //iterate through each group
   for (const id in allGroups) {
     let group = allGroups[id];
-    CL(group.id);
+    //CL(group.id);
   } 
 
-
-
-
-
-
+  let C = new Circle;
+  C.position = G.MID;
+  C.size.r = new Incremental({value: 450, param: -20});
+  C.stroke = new Stroke(RC('clear'));
+  C.stroke.opacity = 0.66;
+  let csw = new Incremental({value: 0, param: 1});
   
-
-  let P = new Point;
-  let X = new Incremental({id:'X', value:10,  param:10, every:3, skip:1, altv:500});
-  let Y = new Incremental({id:'Y', value:100, param:20, every:7, skip:3, altv:200});
-
-  for (let i=1; i<40; i++) {
-    P.x = X.next().value+(i*i);
-    P.y = Y.next().value;
-    //console.log(P);
-    out += P.render('xmark',i)
+  for (let i=1; i<21; i++) {
+    C.size.r.next();
+    C.fill = new Fill({kind: 'random', param: 'clear'});
+    C.stroke.width = csw.next().value;
+    out += C.render();
   }
 
   const P1 = randomPoint();

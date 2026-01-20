@@ -1,34 +1,31 @@
 import RC             from "../utils/colors.mjs";
 import Gradient       from "./gradient.mjs";
-import {allGradients} from "./gradient.mjs";
 
 //Solid color or Gradient fill-------------------------------------------------
 class Fill {
+  fill = '#CCFF00'; //default
   
   constructor({
     kind  = 'random', //solid or gradient
     param =       '', //palette or color
   } = {}) {
-    this.kind  = kind;
-    this.color = '';
+    this.kind = kind;
 
     switch(kind) {
-      case 'random'  : this.color = RC(); break;
-      case 'solid'   : this.color = param ? param : RC('opaque'); break;
+      case null      : this.fill = ''; break;
+      case 'none'    : this.fill = ''; break;
+      case 'random'  : this.fill = RC(param); break;
+      case 'solid'   : this.fill = param ? param : RC('opaque'); break;
       case 'gradient':
-        this.gradient = new Gradient(); 
-        this.color = '#CCFF00';
-        ///////////////TODO 
+        this.gradient = new Gradient(param); 
+        //TODO: palette/param
+        this.fill = 'url(#'+this.gradient.id+')';
         break;
-      default: this.color = RC('suset');
+      default: this.fill = RC('suset');
     }
   }
   //------------------------------------------------------------
-  render() {
-    let out = '';
-
-    return out;
-  }
+  render() { return this.fill ? ' fill="'+this.fill+'" ' : ''; }
 }
 //-----------------------------------------------------------------------------
 

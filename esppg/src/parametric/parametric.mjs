@@ -67,7 +67,24 @@ class Parametric {
   //------------------------------------------------------------
   val()   { return this.value; }
   //------------------------------------------------------------
-  next()  {}
+  next()  {
+    //if (typeof(this.kind) === functional) {
+    //  this.value = this.param(this.value, this.options);
+    //  return this.value;
+    //}
+  
+    switch (this.kind) {
+      case      fixed: this.value = this.options.value;                            break;
+      case     random: this.value = this.rand(this.options.min, this.options.max); break;
+      default: this.value = this.options.value;
+    }
+
+    return this.value;
+  }
+  //------------------------------------------------------------
+  rand(min=0, max=100) {
+    return Math.floor(min + (Math.random() * (max - min)));
+  }
 } 
 //-----------------------------------------------------------------------------
 
