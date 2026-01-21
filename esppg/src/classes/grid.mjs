@@ -19,21 +19,42 @@ class Grid {
     this.center   =              G.MID;
     this.color    =        '#CC9900';
     this.group    =          'builtin';
-    //Cartesian & Isometric------------
-    if (kind == normal) {
-      this.cols   =                  8;
-      this.rows   =                  6;
-      this.size.h =      G.MID.x - 100;
-      this.size.w =      G.MID.y - 100;
-    } else { //Radial & Spiral---------  
-      this.rings  =                  2;
-      this.jewels =                  8;
-      this.size.r =                100; //inner-most ring radius
-      this.size.o =      G.MID.y - 100; //outer-most ring radius
+    //---------------------------------
+    switch (kind) {
+      case normal:
+        this.cols   =                8;
+        this.rows   =                6;
+        this.size.h =    G.MID.x - 100;
+        this.size.w =    G.MID.y - 100;
+        this.xdelta =              100;
+        this.ydelta =              100;
+        break;
+      case radial:
+        this.rings  =                2;
+        this.jewels =               12; //Every 15 degrees
+        this.adelta =               15; //12 portions like clocks
+        this.rdelta =              100;
+        this.size.r =              100; //inner-most ring radius
+        this.size.o =    G.MID.y - 100; //outer-most ring radius
+        break;
+      case spiral:
+        this.rings  =                2;
+        this.jewels =               12; //Every 15 degrees
+        this.adelta =               15; //12 portions like clocks
+        this.rdelta =              100;
+        this.size.r =              100; //inner-most ring radius
+        this.size.o =    G.MID.y - 100; //outer-most ring radius
+        break;          
     }
   }
-
+  //------------------------------------------------------------
   //points() { return svgGridPoints(this); }
+  //------------------------------------------------------------
+  render() {
+    let out = '';
+    return out;
+  }
+  //------------------------------------------------------------  
 }
 
 export default Grid;
