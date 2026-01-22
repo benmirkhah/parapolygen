@@ -11,10 +11,10 @@ class Point {
     r  =  0,
     a  =  0,
   } = {}) { //To conserve memory only x,y are assigned by default
+    if(id) this.id = id;
     Point.total++;
     this.x  =  x;
     this.y  =  y;
-    if(id) this.id = id;
     if(n)  this.n  =  n;
     if(r)  this.r  =  r;
     if(a)  this.a  =  a;

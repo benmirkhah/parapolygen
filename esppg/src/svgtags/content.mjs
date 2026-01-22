@@ -4,6 +4,8 @@ import Fill            from "../classes/fill.mjs";
 import Point           from "../classes/point.mjs";
 import Circle          from "../shapes/circle.mjs";
 import Stroke          from "../classes/stroke.mjs";
+import { radialRA }    from "../utils/radial.mjs";
+import { radialRJ }    from "../utils/radial.mjs";
 import { allGroups }   from "../classes/group.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import Incremental     from "../parametric/incremental.mjs";
@@ -28,7 +30,7 @@ function svgContent() {
   C.stroke.opacity = 0.66;
   let csw = new Incremental({value: 0, param: 1});
   
-  for (let i=1; i<21; i++) {
+  for (let i=1; i<10; i++) {
     C.size.r.next();
     C.fill = new Fill({kind: 'random', param: 'clear'});
     C.stroke.width = csw.next().value;
@@ -40,6 +42,11 @@ function svgContent() {
 
   out += P1.render('cross','P1',5,'red');
   out += P2.render('cross','P2',5,'red');
+
+  const A = radialRA();
+  A.forEach((point) => {
+    out += point.render('cross',point.id,5,'hotpink');
+  });
 
   out += '<!-- /svgContent() -->';
   return out;
