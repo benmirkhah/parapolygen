@@ -13,6 +13,8 @@ This is a work in progress, so far the following works...
   <li>SVG Filters</li>
   <li>Bounding box</li>
   <li>Groups</li>
+  <li>Grids (Radial, Spiral)</li>
+  <li>Circles</li>
   <li>Points with 3 types of render options (circle, crosshair, x-mark)</li>
 </ul>
 
@@ -27,7 +29,7 @@ Parametric iterators
 
 Comming soon...
 <ul>
-  <li>Grids (Cartesian, Radial and Spiral)</li>
+  <li>Grids (Cartesian, and more)</li>
   <li>Basic shapes</li>
   <li>Complex shapes</li>
 </ul>
