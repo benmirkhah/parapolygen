@@ -96,3 +96,5 @@ function radialGrid(options = radialOptions()) {
 
   return points;
 }//----------------------------------------------------------------------------
+
+export default radialGrid;

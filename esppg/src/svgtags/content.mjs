@@ -6,6 +6,8 @@ import Circle          from "../shapes/circle.mjs";
 import Stroke          from "../classes/stroke.mjs";
 import { radialRA }    from "../utils/radial.mjs";
 import { radialRJ }    from "../utils/radial.mjs";
+import { spiralRA }    from "../utils/spiral.mjs";
+import { spiralRJ }    from "../utils/spiral.mjs";
 import { allGroups }   from "../classes/group.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import Incremental     from "../parametric/incremental.mjs";
@@ -43,7 +45,7 @@ function svgContent() {
   out += P1.render('cross','P1',5,'red');
   out += P2.render('cross','P2',5,'red');
 
-  const A = radialRA();
+  const A = spiralRJ();
   A.forEach((point) => {
     out += point.render('cross',point.id,5,'hotpink');
   });
