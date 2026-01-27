@@ -7,25 +7,25 @@ export let allGradients = {};
 
 //Radial or Linear gradient elements-------------------------------------------
 class Gradient extends Element {
-  static count = 1;
+  static total = 1;
   colors = ['#000000']; //index zero
   kind   = '';
   id     = '';
   //------------------------------------------------------------
   constructor(kind='', colorCount=3, palette='') {
     super();
-    Gradient.count++;
+    Gradient.total++;
     for(let c=1; c<=colorCount; c++) { 
       this.colors[c] = RC(palette);
     }
     //if gridient type not provided in args flip a coin and pick one randomly
     this.kind = kind ? kind : ( (Math.random() < 0.5) ? 'linear' : 'radial' );
-    this.id   = ((this.kind=='radial') ? 'RG' : 'LG') + Gradient.count;
+    this.id   = ((this.kind=='radial') ? 'RG' : 'LG') + Gradient.total;
     this.id   = G.SVGID + this.id;
     allGradients[this.id] =  this;
   }
   //------------------------------------------------------------
-  count() { return Gradient.count; }
+  total() { return Gradient.total; }
   //------------------------------------------------------------
   id() { return this.id; }
   //------------------------------------------------------------

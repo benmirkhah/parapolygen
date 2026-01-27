@@ -95,7 +95,7 @@ function spiralGrid(options = spiralOptions()) {
   }
 
   if (G.DEBUG) {
-    console.log(points);
+    //console.log(points);
     if (bound) {
       console.log(ignore+' points where ignored for being out of bounds');
       console.log(msg);
