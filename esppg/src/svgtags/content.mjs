@@ -11,6 +11,7 @@ import { spiralRJ }    from "../utils/spiral.mjs";
 import { allGroups }   from "../classes/group.mjs";
 import { randomPoint } from "../utils/randoms.mjs";
 import Incremental     from "../parametric/incremental.mjs";
+import Grid from "../classes/grid.mjs";
 //Syntax sugar--------------------------------------------------
 function CL(x) { return G.DEBUG ? console.log(x) : false; }
 
@@ -23,8 +24,8 @@ function svgContent() {
   for (const id in allGroups) {
     let group = allGroups[id];
     //CL(group.id);
-  } 
-
+  }
+/*
   let C = new Circle;
   C.position = G.MID;
   C.size.r = new Incremental({value: 450, param: -20});
@@ -38,17 +39,23 @@ function svgContent() {
     C.stroke.width = csw.next().value;
     out += C.render();
   }
-
+*/
   const P1 = randomPoint();
   const P2 = randomPoint();
 
   out += P1.render('cross','P1',5,'red');
   out += P2.render('cross','P2',5,'red');
 
-  const A = spiralRJ();
-  A.forEach((point) => {
-    out += point.render('cross',point.id,5,'hotpink');
-  });
+  let BEN = new Grid({
+    kind:'radial', 
+    x:400, y:400, 
+    r:50, o:500, 
+    a:0,
+    rdelta:100, adelta:10,
+    rings:3, jewels:12,
+    bound: false,
+  }); //, 
+  out += BEN.render();
 
   out += '<!-- /svgContent() -->';
   return out;
